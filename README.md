@@ -42,6 +42,7 @@ cmake --build ./build --target client server
 ```
 
 ## Running Server & Client
+If you are on advos, make sure you are [using unique port](#a-note-about-ports)
 
 In one terminal:
 ```shell
