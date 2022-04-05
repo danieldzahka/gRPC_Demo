@@ -8,13 +8,14 @@ set(demo_grpc_srcs "${CMAKE_CURRENT_BINARY_DIR}/demo.grpc.pb.cc")
 set(demo_grpc_hdrs "${CMAKE_CURRENT_BINARY_DIR}/demo.grpc.pb.h")
 add_custom_command(
         OUTPUT "${demo_proto_srcs}" "${demo_proto_hdrs}" "${demo_grpc_srcs}" "${demo_grpc_hdrs}"
-        COMMAND $<TARGET_FILE:protoc>
+        COMMAND protoc
         ARGS --grpc_out "${CMAKE_CURRENT_BINARY_DIR}"
         --cpp_out "${CMAKE_CURRENT_BINARY_DIR}"
         -I "${CMAKE_CURRENT_SOURCE_DIR}"
-        --plugin=protoc-gen-grpc="${_GRPC_CPP_PLUGIN_PROGRAM}"
+        --plugin=protoc-gen-grpc="${_GRPC_CPP_PLUGIN_EXECUTABLE}"
         "${demo_proto}"
-        DEPENDS "${demo_proto}")
+        DEPENDS protoc "${demo_proto}"
+)
 
 add_library(demo_grpc_proto
         ${demo_grpc_srcs}

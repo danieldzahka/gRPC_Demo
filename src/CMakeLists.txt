@@ -6,16 +6,7 @@ FetchContent_Declare(
 set(FETCHCONTENT_QUIET OFF)
 FetchContent_MakeAvailable(gRPC)
 
-set(_PROTOBUF_LIBPROTOBUF libprotobuf)
-set(_REFLECTION grpc++_reflection)
-set(_PROTOBUF_PROTOC $<TARGET_FILE:protoc>)
-set(_GRPC_GRPCPP grpc++)
 set(_GRPC_CPP_PLUGIN_EXECUTABLE $<TARGET_FILE:grpc_cpp_plugin>)
-
-cmake_print_properties(
-        TARGETS protoc
-        PROPERTIES TARGET_FILE
-)
 
 add_subdirectory(proto)
 
@@ -34,4 +25,3 @@ target_link_libraries(server
         project_warnings
         demo_grpc_proto
         )
-
