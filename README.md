@@ -19,8 +19,8 @@ apt-get install build-essential autoconf libtool pkg-config
 ```shell
 git clone https://github.com/danieldzahka/gRPC_Demo.git
 cd gRPC_Demo
-cmake -S . -B ./build 
-cmake --build ./build --target client server -- -j
+cmake -S . -B ./build
+cmake --build ./build --target client server
 ```
 
 ## Running Server & Client
