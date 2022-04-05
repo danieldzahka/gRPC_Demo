@@ -1,10 +1,22 @@
 # gRPC Demo for CS6210 Project 4
 
-If you are running on advos, you can skip to [Building the Demo](#building-the-demo). Otherwise, you may need to install these dependencies:
+The globally installed version of cmake on advos is too old for this to work, so if you want to do this on advos, [install cmake locally](#install-cmake-locally-without-sudo), then skip to [Building the Demo](#building-the-demo). If you are running on your own machine, make sure all of the dependencies are installed. After the project 3 deadline, we plan to upgrade the cmake on advos to eliminate the first step.
 
 ## Dependencies
+### Install cmake locally without sudo
+Install cmake locally (you can do this on advos without sudo):
+```shell
+wget https://github.com/Kitware/CMake/releases/download/v3.23.0/cmake-3.23.0-linux-x86_64.sh
+mkdir -p $HOME/localcmake 
+sh cmake-3.23.0-linux-x86_64.sh --prefix=$HOME/localcmake --skip-license 
+export PATH=$HOME/localcmake/bin:$PATH #You need to do this every time you login, otherwise put in $HOME/.profile 
+which cmake # /home/<gtid>/localcmake/bin/cmake
+cmake --version # cmake version 3.23.0
+```
 
-Install cmake:
+### Installing Dependencies with sudo
+
+Install cmake with sudo:
 ```shell
 sudo apt-get install cmake
 cmake --version # output should be >= 3.15
