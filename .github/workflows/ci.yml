@@ -6,8 +6,7 @@ on:
   push:
     tags:
     branches:
-      - main
-      - develop
+      - master
 
 jobs:
   Test:
