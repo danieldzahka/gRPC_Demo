@@ -14,7 +14,7 @@ add_custom_command(
         -I "${CMAKE_CURRENT_SOURCE_DIR}"
         --plugin=protoc-gen-grpc="${_GRPC_CPP_PLUGIN_EXECUTABLE}"
         "${demo_proto}"
-        DEPENDS protoc "${demo_proto}"
+        DEPENDS protoc grpc_cpp_plugin "${demo_proto}"
 )
 
 add_library(demo_grpc_proto

@@ -6,5 +6,10 @@ service DemoService {
   rpc Hello (HelloRequest) returns (HelloReply) {}
 }
 
-message HelloRequest {}
-message HelloReply {}
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloReply {
+  string message = 1;
+}
