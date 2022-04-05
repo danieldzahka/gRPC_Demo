@@ -6,20 +6,26 @@ If you are running on advos, you can skip to [Building the Demo](#building-the-d
 
 Install cmake:
 ```shell
-sudo apt install cmake
+sudo apt-get install cmake
 cmake --version # output should be >= 3.15
 ```
 
 Dependencies to build gRPC:
 ```shell
-apt-get install build-essential autoconf libtool pkg-config
+sudo apt-get install build-essential autoconf libtool pkg-config
+```
+
+ninja-build is an optional dependency that can speed up the gRPC build.
+```shell
+sudo apt-get install ninja-build # optional dependency
+ninja --version #Check install
 ```
 
 ## Building the Demo
 ```shell
 git clone https://github.com/danieldzahka/gRPC_Demo.git
 cd gRPC_Demo
-cmake -S . -B ./build
+cmake -S . -B ./build #-G Ninja (optional: add this if you installed ninja-build)
 cmake --build ./build --target client server
 ```
 
